@@ -1,0 +1,19 @@
+{
+  "name": "blog-box",
+  "version": "0.0.1",
+  "description": "📝 Update a gist with your latest dev.to blog post",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aveek-Saha/blog-box.git"
+  },
+  "author": "Aveek Saha <aveek.s98@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aveek-Saha/blog-box/issues"
+  },
+  "homepage": "https://github.com/Aveek-Saha/blog-box"
+}
