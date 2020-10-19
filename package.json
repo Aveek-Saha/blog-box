@@ -1,6 +1,6 @@
 {
   "name": "blog-box",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "📝 Update a gist with your latest dev.to blog post",
   "main": "index.js",
   "scripts": {
