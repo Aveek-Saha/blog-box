@@ -22,6 +22,10 @@ const octokit = new Octokit({
     auth: `token ${githubToken}`
 });
 
+function truncate(str, n){
+    return (str.length > n) ? str.substr(0, n-2) + '…' : str;
+};
+
 async function getPost() {
     try {
         const response = await axios.get(baseURL, options);
@@ -63,19 +67,19 @@ async function updateGist(post) {
     const filename = Object.keys(gist.data.files)[0];
     const commentId = gist_comment.data[0].id;
     const tags = '#' + post.tag_list.join(", #");
-    const content = `📜 ${post.title} \n 🔖 ${tags} \n 🔗 Link in comments`;
+    const content = `📜 ${truncate(post.title, 60).replace(/\s+/g, ' ')} \n ▶ ${
+        truncate(post.description, 100).replace(/\s+/g, ' ')
+    } \n🔖 ${tags} \n📆 ${post.readable_publish_date.replace(/\s+/g, ' ')} | 🔗 Link in comments`;
   
     try {
       await octokit.gists.update({
         gist_id: gistId,
-        description: `@dev.to/${devUsername} - ${
-            post.readable_publish_date
-        } | ❤ ${post.public_reactions_count} | 💬 ${
+        description: `dev.to/${devUsername} | ❤ ${post.public_reactions_count} | 💬 ${
             post.comments_count
-        } `,
+        }`,
         files: {
           [filename]: {
-              content: wrapAnsi(content, 60, { hard: true })
+              content: wrapAnsi(content, 60, { hard: true, trim: false })
           }
         }
       });
