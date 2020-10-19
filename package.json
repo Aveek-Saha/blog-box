@@ -8,12 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aveek-Saha/blog-box.git"
+    "url": "https://github.com/Aveek-Saha/blog-box.git"
   },
   "author": "Aveek Saha <aveek.s98@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Aveek-Saha/blog-box/issues"
   },
-  "homepage": "https://github.com/Aveek-Saha/blog-box"
+  "homepage": "https://github.com/Aveek-Saha/blog-box",
+  "dependencies": {
+    "@octokit/rest": "^18.0.6",
+    "axios": "^0.20.0",
+    "dotenv": "^8.2.0",
+    "wrap-ansi": "^7.0.0"
+  }
 }
