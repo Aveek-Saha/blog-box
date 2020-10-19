@@ -17,9 +17,6 @@ const options = {
     }
   }
 
-// console.log(gistId);
-// console.log(githubToken);
-// console.log(devUsername);
 
 const octokit = new Octokit({
     auth: `token ${githubToken}`
@@ -35,6 +32,21 @@ async function getPost() {
     }
 }
 
+async function createComment() {
+    let gist_comment;
+    try {
+        await octokit.gists.createComment({
+            gist_id: gistId,
+            body: 'The post link goes here'
+        });
+        gist_comment = await octokit.gists.listComments({ gist_id: gistId });
+    } catch (error) {
+        console.error(`Unable to create comment\n${error}`);
+    }
+
+    return gist_comment;
+}
+
 async function updateGist(post) {
     let gist;
     let gist_comment;
@@ -44,10 +56,14 @@ async function updateGist(post) {
     } catch (error) {
       console.error(`Unable to get gist\n${error}`);
     }
+
+    if(gist_comment.data.length == 0)
+        gist_comment = await createComment()
+
     const filename = Object.keys(gist.data.files)[0];
     const commentId = gist_comment.data[0].id;
     const tags = '#' + post.tag_list.join(", #");
-    const content = `Title: ${post.title} \n Tags: ${tags} \n\n 🔗 Link in comments`;
+    const content = `📜 ${post.title} \n 🔖 ${tags} \n 🔗 Link in comments`;
   
     try {
       await octokit.gists.update({
