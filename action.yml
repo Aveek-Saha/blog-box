@@ -1,0 +1,11 @@
+name: blog-box
+author: Aveek Saha
+description: GitHub Action for injecting your latest dev.to blog post into a gist
+
+runs:
+  using: 'node12'
+  main: './index.js'
+
+branding:
+  icon: type
+  color: red
