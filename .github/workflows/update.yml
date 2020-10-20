@@ -1,5 +1,6 @@
-name: Update gist latest post
+name: Update gist with latest post
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
 jobs:
