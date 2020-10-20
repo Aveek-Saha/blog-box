@@ -1,7 +1,7 @@
 <p align="center">
   <img width="450" src="https://user-images.githubusercontent.com/31800695/95653499-c52a4580-0b16-11eb-863a-e23c43e4ae21.png">
   <h3 align="center">blog-box</h3>
-  <p align="center">Update a pinned gist to show your latest dev.to blog post</p>
+  <p align="center">📝 Update a pinned gist to show your latest dev.to blog post</p>
 </p>
 
 ---
