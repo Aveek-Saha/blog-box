@@ -11,7 +11,6 @@ jobs:
       - run: npm install
       - name: blog-box
         uses: aveek-saha/blog-box@v1.0.0
-        uses: ./
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
