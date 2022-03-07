@@ -67,7 +67,7 @@ async function updateGist(post) {
     const filename = Object.keys(gist.data.files)[0];
     const commentId = gist_comment.data[0].id;
     const tags = '#' + post.tag_list.join(", #");
-    const content = `📜 ${truncate(post.title, 59).replace(/\s+/g, ' ')} \n ▶ ${
+    const content = `📜 ${truncate(post.title, 54).replace(/\s+/g, ' ')} \n ▶ ${
         truncate(post.description, 100).replace(/\s+/g, ' ')
     } \n🔖 ${tags} \n📆 ${post.readable_publish_date.replace(/\s+/g, ' ')} | 🔗 Link in comments`;
   
